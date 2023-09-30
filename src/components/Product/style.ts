@@ -4,12 +4,19 @@ import { TagContainer } from '../Tag/style'
 
 export const Card = styled.div`
   padding: 8px;
+  position: relative;
   border-radius: 8px;
   background-color: ${cores.cinza};
 
   ${TagContainer} {
     margin-right: 8px;
   }
+`
+
+export const TagsInfo = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
 
 export const Titulo = styled.h3`

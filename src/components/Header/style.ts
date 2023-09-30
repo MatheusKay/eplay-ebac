@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { cores } from '../../styles'
 
 export const HeaderBar = styled.header`
@@ -14,6 +15,12 @@ export const HeaderBar = styled.header`
 export const ContainerHeader = styled.div`
   display: flex;
   align-items: center;
+
+  a {
+    color: ${cores.branco};
+    text-decoration: none;
+    font-weight: bold;
+  }
 `
 
 export const Links = styled.ul`
@@ -25,14 +32,11 @@ export const LinksItem = styled.li`
   margin-right: 16px;
 `
 
-export const Link = styled.a`
+export const LinkCart = styled.a`
+  display: flex;
   color: ${cores.branco};
   text-decoration: none;
   font-weight: bold;
-`
-
-export const LinkCart = styled(Link)`
-  display: flex;
 
   img {
     margin-left: 16px;

@@ -18,7 +18,7 @@ export const ContainerList = styled.section<Omit<Props, 'title' | 'games'>>`
 export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 24px;
+  gap: 24px;
 `
 
 export const Titulo = styled.h2`

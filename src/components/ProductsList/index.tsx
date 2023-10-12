@@ -1,5 +1,5 @@
 import Product from '../Product'
-import Game from '../../models/Games'
+import { Game } from '../../pages/Home'
 
 import { Container } from '../../styles'
 import { ContainerList, List, Titulo } from './style'
@@ -10,25 +10,52 @@ export type Props = {
   games: Game[]
 }
 
-const ProductsList = ({ background, title, games }: Props) => (
-  <ContainerList background={background}>
-    <Container>
-      <Titulo>{title}</Titulo>
-      <List>
-        {games.map((game) => (
-          <Product
-            key={game.id}
-            title={game.title}
-            image={game.image}
-            category={game.category}
-            system={game.system}
-            description={game.description}
-            infos={game.infos}
-          />
-        ))}
-      </List>
-    </Container>
-  </ContainerList>
-)
+export const formaPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const ProductsList = ({ background, title, games }: Props) => {
+  const getGameTags = (game: Game) => {
+    const tags = []
+
+    if (game.release_date) {
+      tags.push(game.release_date)
+    }
+
+    if (game.prices.discount) {
+      tags.push(`${game.prices.discount}%`)
+    }
+
+    if (game.prices.current) {
+      tags.push(formaPreco(game.prices.current))
+    }
+
+    return tags
+  }
+
+  return (
+    <ContainerList background={background}>
+      <Container>
+        <Titulo>{title}</Titulo>
+        <List>
+          {games.map((game) => (
+            <Product
+              key={game.id}
+              title={game.name}
+              image={game.media.thumbnail}
+              category={game.details.category}
+              system={game.details.system}
+              description={game.description}
+              infos={getGameTags(game)}
+            />
+          ))}
+        </List>
+      </Container>
+    </ContainerList>
+  )
+}
 
 export default ProductsList

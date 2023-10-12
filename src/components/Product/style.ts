@@ -8,6 +8,13 @@ export const Card = styled.div`
   border-radius: 8px;
   background-color: ${cores.cinza};
 
+  img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    object-fit: cover;
+  }
+
   ${TagContainer} {
     margin-right: 8px;
   }

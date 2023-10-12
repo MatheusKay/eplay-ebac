@@ -12,11 +12,7 @@ import iconPlay from '../../assets/imagens/play.png'
 import iconFechar from '../../assets/imagens/fechar.png'
 
 import { Container } from '../../styles'
-
-interface GallaryItem {
-  type: 'image' | 'video'
-  url: string
-}
+import { GallaryItem } from '../../pages/Home'
 
 const mock: GallaryItem[] = [
   {

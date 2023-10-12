@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { TagContainer } from '../Tag/style'
+import { Container } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -14,11 +15,24 @@ export const Imagem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    position: relative;
+    z-index: 1;
   }
 
   ${TagContainer} {
     position: absolute;
     top: 32px;
+    z-index: 1;
+  }
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: '';
   }
 `
 
@@ -26,12 +40,16 @@ export const Titulo = styled.h2`
   max-width: 450px;
   font-weight: bold;
   font-size: 36px;
+  position: relative;
+  z-index: 1;
 `
 
 export const Precos = styled.p`
   margin-top: 24px;
   font-size: 24px;
   font-weight: bold;
+  position: relative;
+  z-index: 1;
 
   span {
     text-decoration: line-through;

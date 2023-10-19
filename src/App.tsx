@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Rotas from './routers'
 import Footer from './components/Footer'
 import { store } from './strore'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         </Container>
         <Rotas />
         <Footer />
+        <Cart />
       </BrowserRouter>
     </Provider>
   )

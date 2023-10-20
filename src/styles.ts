@@ -8,6 +8,11 @@ export const cores = {
   cinzaClaro: '#a3a3a3'
 }
 
+export const breackPoints = {
+  descktop: '1024px',
+  tablet: '768px'
+}
+
 export const GlobalCss = createGlobalStyle`
   * {
     padding: 0;
@@ -28,4 +33,8 @@ export const Container = styled.div`
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: ${breackPoints.descktop}) {
+    max-width: 80%;
+  }
 `

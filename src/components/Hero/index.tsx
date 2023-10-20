@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux'
 import { Banner, Infos } from './style'
 
 import { Container } from '../../styles'
@@ -8,37 +9,49 @@ import Button from '../Button'
 import { Game } from '../../pages/Home'
 import { formaPreco } from '../ProductsList'
 
+import { add, open } from '../../strore/reducers/cart'
+
 type Props = {
   game: Game
 }
 
-const Hero = ({ game }: Props) => (
-  <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
-    <Container>
-      <div>
-        <Tag>{game.details.category}</Tag>
-        <Tag>{game.details.system}</Tag>
-      </div>
-      <Infos>
-        <h2>{game.name}</h2>
-        <p>
-          {game.prices.discount && (
-            <span>De {formaPreco(game.prices.old)}</span>
+const Hero = ({ game }: Props) => {
+  const dispatch = useDispatch()
+
+  const addCart = () => {
+    dispatch(add(game))
+    dispatch(open())
+  }
+
+  return (
+    <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
+      <Container>
+        <div>
+          <Tag>{game.details.category}</Tag>
+          <Tag>{game.details.system}</Tag>
+        </div>
+        <Infos>
+          <h2>{game.name}</h2>
+          <p>
+            {game.prices.discount && (
+              <span>De {formaPreco(game.prices.old)}</span>
+            )}
+            {game.prices.current && <>Por {formaPreco(game.prices.current)}</>}
+          </p>
+          {game.prices.current && (
+            <Button
+              type="button"
+              title="Click para adicionar ao carrinho"
+              variant="primary"
+              onClick={addCart}
+            >
+              Adicionar ao carrinho
+            </Button>
           )}
-          {game.prices.current && <>Por {formaPreco(game.prices.current)}</>}
-        </p>
-        {game.prices.current && (
-          <Button
-            type="button"
-            title="Click para adicionar ao carrinho"
-            variant="primary"
-          >
-            Adicionar ao carrinho
-          </Button>
-        )}
-      </Infos>
-    </Container>
-  </Banner>
-)
+        </Infos>
+      </Container>
+    </Banner>
+  )
+}
 
 export default Hero

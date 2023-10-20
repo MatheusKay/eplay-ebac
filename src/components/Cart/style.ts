@@ -22,9 +22,13 @@ export const CartContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
 `
 
 export const SideBar = styled.aside`
@@ -102,5 +106,6 @@ export const CardItem = styled.li`
     background-image: url(${fechar});
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
 `

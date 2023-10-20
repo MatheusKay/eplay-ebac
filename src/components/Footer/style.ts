@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { HashLink } from 'react-router-hash-link'
 
 import { cores } from '../../styles'
 
@@ -23,7 +24,7 @@ export const Links = styled.ul`
   display: flex;
 `
 
-export const Link = styled.a`
+export const Link = styled(HashLink)`
   margin-right: 8px;
   color: ${cores.cinzaClaro};
   text-decoration: none;

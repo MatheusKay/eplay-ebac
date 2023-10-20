@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { breackPoints, cores } from '../../styles'
 
 export const HeaderBar = styled.header`
   padding: 24px;
@@ -10,6 +10,10 @@ export const HeaderBar = styled.header`
   justify-content: space-between;
   background-color: ${cores.cinza};
   border-radius: 16px;
+
+  @media (max-width: ${breackPoints.tablet}) {
+    display: none;
+  }
 `
 
 export const ContainerHeader = styled.div`
@@ -32,11 +36,12 @@ export const LinksItem = styled.li`
   margin-right: 16px;
 `
 
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   display: flex;
   color: ${cores.branco};
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 
   img {
     margin-left: 16px;

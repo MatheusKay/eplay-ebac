@@ -5,6 +5,7 @@ import { cores } from '../../styles'
 
 export const ContainerFooter = styled.footer`
   padding: 32px 0;
+  margin-top: 40px;
   background-color: ${cores.cinza};
   font-size: 14px;
 `

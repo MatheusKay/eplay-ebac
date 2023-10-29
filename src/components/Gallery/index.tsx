@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
-import Section from '../Section'
+import { GallaryItem } from '../../pages/Home'
 
-import { Item, Items, Action, Modal } from './style'
+import Section from '../Section'
 
 import iconZoom from '../../assets/imagens/zoom.png'
 import iconPlay from '../../assets/imagens/play.png'
 import iconFechar from '../../assets/imagens/fechar.png'
 
 import { Container } from '../../styles'
-import { GallaryItem } from '../../pages/Home'
+import { Item, Items, Action, Modal } from './style'
 
 type Props = {
   defaultCover: string

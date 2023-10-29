@@ -20,14 +20,11 @@ export const Action = styled.div`
   background-color: rgba(0, 0, 0, 0.73);
   opacity: 0;
   transition: opacity 0.5s ease;
-
-  img {
-    cursor: pointer;
-  }
 `
 
 export const Item = styled.li`
   position: relative;
+  cursor: zoom-in;
 
   > img {
     width: 150px;

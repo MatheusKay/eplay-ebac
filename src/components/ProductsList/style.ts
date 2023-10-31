@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 import { Props } from '.'
-import { breackPoints, cores } from '../../styles'
+import { breackPoints, colors } from '../../styles'
 import { Card } from '../Product/style'
 
 export const ContainerList = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.background === 'black' ? cores.preto : cores.cinza};
+    props.background === 'black' ? colors.black : colors.gray};
 
   ${Card} {
     background-color: ${(props) =>
-      props.background === 'black' ? cores.cinza : cores.preto};
+      props.background === 'black' ? colors.gray : colors.black};
   }
 `
 
@@ -29,7 +29,7 @@ export const List = styled.ul`
   }
 `
 
-export const Titulo = styled.h2`
+export const Title = styled.h2`
   margin-bottom: 40px;
   font-size: 18px;
   font-weight: bold;

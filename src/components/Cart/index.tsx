@@ -1,24 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import Button from '../Button'
 import Tag from '../Tag'
 
-import { formaPreco } from '../ProductsList'
+import { getTotalPrices, parseToBrl } from '../../ultis'
 import { RootReducer } from '../../strore'
 import { close, remove } from '../../strore/reducers/cart'
 
-import {
-  Overlay,
-  CartContainer,
-  SideBar,
-  Prices,
-  Quantity,
-  CardItem
-} from './style'
+import * as S from './style'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const cartClose = () => {
     dispatch(close())
@@ -28,40 +23,43 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-  const getTotalPrices = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.prices.current!)
-    }, 0)
+  const goToCheckout = () => {
+    navigate('/checkout')
+    cartClose()
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={cartClose} />
-      <SideBar>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={cartClose} />
+      <S.SideBar>
         <ul>
           {items.map((item) => (
-            <CardItem key={item.id}>
+            <S.CardItem key={item.id}>
               <img src={item.media.thumbnail} alt={item.name} />
               <div>
                 <h3>{item.name}</h3>
                 <Tag>{item.details.category}</Tag>
                 <Tag>{item.details.system}</Tag>
-                <span>{formaPreco(item.prices.current)}</span>
+                <span>{parseToBrl(item.prices.current)}</span>
               </div>
               <button onClick={() => removeCart(item.id)} type="button" />
-            </CardItem>
+            </S.CardItem>
           ))}
         </ul>
-        <Quantity>{items.length} jogo(s) no carrinho</Quantity>
-        <Prices>
-          Total de {formaPreco(getTotalPrices())}{' '}
+        <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
+        <S.Prices>
+          Total de {parseToBrl(getTotalPrices(items))}{' '}
           <span>em ate 6x sem juros</span>
-        </Prices>
-        <Button title="Clique aqui para finalizar a compra" type="button">
+        </S.Prices>
+        <Button
+          onClick={goToCheckout}
+          title="Clique aqui para finalizar a compra"
+          type="button"
+        >
           Continar com a compra
         </Button>
-      </SideBar>
-    </CartContainer>
+      </S.SideBar>
+    </S.CartContainer>
   )
 }
 

@@ -4,12 +4,12 @@ import { GallaryItem } from '../../pages/Home'
 
 import Section from '../Section'
 
-import iconZoom from '../../assets/imagens/zoom.png'
-import iconPlay from '../../assets/imagens/play.png'
-import iconFechar from '../../assets/imagens/fechar.png'
+import zoomIcon from '../../assets/imagens/zoom.png'
+import playIcon from '../../assets/imagens/play.png'
+import closeIcon from '../../assets/imagens/fechar.png'
 
 import { Container } from '../../styles'
-import { Item, Items, Action, Modal } from './style'
+import * as S from './style'
 
 type Props = {
   defaultCover: string
@@ -34,8 +34,8 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
   }
 
   const getMediaIcon = (item: GallaryItem) => {
-    if (item.type === 'image') return iconZoom
-    return iconPlay
+    if (item.type === 'image') return zoomIcon
+    return playIcon
   }
 
   const closeModal = () => {
@@ -49,9 +49,9 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
   return (
     <>
       <Section title="Galeria" background="black">
-        <Items>
+        <S.Items>
           {items.map((media, index) => (
-            <Item
+            <S.Item
               key={media.url}
               onClick={() => {
                 setModal({
@@ -65,27 +65,21 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
                 src={getMediaCover(media)}
                 alt={`Midia ${index + 1} do ${name}`}
               />
-              <Action>
+              <S.Action>
                 <img
                   src={getMediaIcon(media)}
                   alt="Clique para visualizar a midia"
                 />
-              </Action>
-            </Item>
+              </S.Action>
+            </S.Item>
           ))}
-        </Items>
+        </S.Items>
       </Section>
-      <Modal className={modal.isVisible ? 'visivel' : ''}>
+      <S.Modal className={modal.isVisible ? 'is-visible' : ''}>
         <Container>
           <header>
             <h4>{name}</h4>
-            <img
-              src={iconFechar}
-              alt="Icone de fechar"
-              onClick={() => {
-                closeModal()
-              }}
-            />
+            <img src={closeIcon} alt="Icone de fechar" onClick={closeModal} />
           </header>
           {modal.type === 'image' ? (
             <img src={modal.url} alt="" />
@@ -99,7 +93,7 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
           }}
           className="overlay"
         ></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

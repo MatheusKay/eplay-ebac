@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { breackPoints, cores } from '../../styles'
+import { breackPoints, colors } from '../../styles'
 
 export const Links = styled.ul`
   display: flex;
@@ -15,11 +15,11 @@ export const Links = styled.ul`
 export const HeaderBar = styled.header`
   padding: 24px;
   margin-bottom: 80px;
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   border-radius: 16px;
 
   a {
-    color: ${cores.branco};
+    color: ${colors.white};
     text-decoration: none;
     font-weight: bold;
   }
@@ -68,7 +68,7 @@ export const NavMobile = styled.nav`
 
 export const CartButton = styled.a`
   display: flex;
-  color: ${cores.branco};
+  color: ${colors.white};
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -92,7 +92,7 @@ export const Humburgue = styled.div`
     height: 2px;
     margin-bottom: 4px;
     display: block;
-    background-color: ${cores.branco};
+    background-color: ${colors.white};
   }
 
   @media (min-width: ${breackPoints.tablet}) {

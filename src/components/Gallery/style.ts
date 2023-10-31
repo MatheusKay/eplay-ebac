@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Container, cores } from '../../styles'
+import { Container, colors } from '../../styles'
 
 export const Items = styled.ul`
   display: flex;
@@ -29,7 +29,7 @@ export const Item = styled.li`
   > img {
     width: 150px;
     height: 150px;
-    border: 2px solid ${cores.branco};
+    border: 2px solid ${colors.white};
     border-radius: 8px;
     object-fit: cover;
   }
@@ -53,7 +53,7 @@ export const Modal = styled.div`
   left: 0;
   z-index: 1;
 
-  &.visivel {
+  &.is-visible {
     display: flex;
   }
 

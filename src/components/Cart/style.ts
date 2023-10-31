@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/style'
 import { ButtonContainer } from '../Button/style'
 
-import fechar from '../../assets/imagens/fechar.png'
+import close from '../../assets/imagens/fechar.png'
 
 export const Overlay = styled.div`
   width: 100%;
@@ -35,7 +35,7 @@ export const SideBar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 40px 16px 0 16px;
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   z-index: 1;
 
   ${ButtonContainer} {
@@ -48,12 +48,12 @@ export const Prices = styled.p`
   margin-bottom: 24px;
   font-size: 14px;
   font-weight: bold;
-  color: ${cores.branco};
+  color: ${colors.white};
 
   span {
     display: block;
     font-size: 12px;
-    color: ${cores.cinzaClaro};
+    color: ${colors.lightGray};
   }
 `
 
@@ -62,14 +62,14 @@ export const Quantity = styled.p`
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: bold;
-  color: ${cores.branco};
+  color: ${colors.white};
 `
 
 export const CardItem = styled.li`
   padding: 8px 0;
   position: relative;
   display: flex;
-  border-bottom: 1px solid ${cores.cinzaClaro};
+  border-bottom: 1px solid ${colors.lightGray};
 
   img {
     height: 80px;
@@ -87,14 +87,14 @@ export const CardItem = styled.li`
   h3 {
     font-size: 16px;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   span {
     display: block;
     font-size: 14px;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   button {
@@ -103,7 +103,7 @@ export const CardItem = styled.li`
     position: absolute;
     top: 8px;
     right: 0;
-    background-image: url(${fechar});
+    background-image: url(${close});
     background-color: transparent;
     border: none;
     cursor: pointer;

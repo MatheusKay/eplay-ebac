@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, breackPoints, cores } from '../../styles'
+import { Container, breackPoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/style'
 
 export const Banner = styled.div`
@@ -46,7 +46,7 @@ export const Banner = styled.div`
 export const Infos = styled.div`
   max-width: 290px;
   padding: 16px;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   font-weight: bold;
 
   h2 {

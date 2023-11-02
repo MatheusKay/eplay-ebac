@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import { GallaryItem } from '../../pages/Home'
-
 import Section from '../Section'
 
 import zoomIcon from '../../assets/imagens/zoom.png'

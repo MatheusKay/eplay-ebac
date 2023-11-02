@@ -4,7 +4,6 @@ import Tag from '../Tag'
 
 import Button from '../Button'
 
-import { Game } from '../../pages/Home'
 import { parseToBrl } from '../../ultis'
 
 import { add, open } from '../../strore/reducers/cart'
